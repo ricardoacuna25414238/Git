@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "titulo": "exposicion",
+    "descripcion": "preparar la predefensa",
+    "estado": "pendiente",
+    "fecha": "2026-09-03 20:11"
+  },
+  {
+    "id": 2,
+    "titulo": "entrgart trabajo",
+    "descripcion": "hacer el programa",
+    "estado": "pendiente",
+    "fecha": "2026-09-03 20:11"
+  }
+]
