@@ -9,18 +9,15 @@ implementada como un método de la clase PilaDepartamentos.
 
 
 class PilaDepartamentos:
-    """Representa una pila (stack) de nombres de departamentos de Nicaragua."""
 
     def __init__(self):
         self._elementos = []
 
     def agregar(self, departamento):
-        """Agrega un departamento a la cima de la pila (push)."""
         self._elementos.append(departamento)
         print(f"'{departamento}' fue agregado a la pila.")
 
     def eliminar(self):
-        """Elimina y retorna el departamento en la cima de la pila (pop)."""
         if self.esta_vacia():
             print("La pila está vacía, no hay nada que eliminar.")
             return None
@@ -29,28 +26,30 @@ class PilaDepartamentos:
         return departamento
 
     def ver_cima(self):
-        """Muestra el departamento que está en la cima de la pila (peek)."""
         if self.esta_vacia():
             print("La pila está vacía.")
             return None
         print(f"El elemento en la cima es: {self._elementos[-1]}")
         return self._elementos[-1]
 
-    def buscar(self, departamento):
-        """Busca un departamento dentro de la pila."""
+    def buscar(self):
+        if self.esta_vacia():
+            print("La pila está vacía, no se puede buscar.")
+            return False
+        
+        departamento = input("ingrese el departamento que desea buscar")
+            
         if departamento in self._elementos:
             print(f"'{departamento}' se encuentra en la pila.")
             return True
         print(f"'{departamento}' no se encuentra en la pila.")
         return False
-
+    
     def contar(self):
-        """Cuenta cuántos elementos tiene la pila."""
         print(f"La pila tiene {len(self._elementos)} elemento(s).")
         return len(self._elementos)
 
     def imprimir(self):
-        """Imprime todos los elementos de la pila, de la cima a la base."""
         if self.esta_vacia():
             print("La pila está vacía.")
             return
@@ -59,17 +58,17 @@ class PilaDepartamentos:
             print(f"  -> {departamento}")
 
     def limpiar(self):
-        """Elimina todos los elementos de la pila."""
+        if self.esta_vacia():
+           print ("La pila esta vacia, no hay nada que limpiar")
+           return 
         self._elementos.clear()
         print("La pila ha sido limpiada.")
 
     def esta_vacia(self):
-        """Retorna True si la pila no tiene elementos."""
         return len(self._elementos) == 0
 
 
 def mostrar_menu():
-    """Muestra el menú de opciones."""
     print("\n****Menú de Opciones*****")
     print("1. Agregar un departamento")
     print("2. Eliminar un departamento")
@@ -82,7 +81,6 @@ def mostrar_menu():
 
 
 def main():
-    """Función principal que controla el flujo del programa."""
     pila = PilaDepartamentos()
 
     while True:
@@ -100,8 +98,7 @@ def main():
         elif opcion == "3":
             pila.ver_cima()
         elif opcion == "4":
-            nombre = input("Ingrese el nombre del departamento a buscar: ").strip()
-            pila.buscar(nombre)
+            pila.buscar()
         elif opcion == "5":
             pila.contar()
         elif opcion == "6":

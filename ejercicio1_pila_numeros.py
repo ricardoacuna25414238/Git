@@ -13,7 +13,6 @@ pila = []
 
 
 def agregar_numero():
-    """Agrega un número entero a la pila (push)."""
     while True:
         try:
             numero = int(input("Ingrese un número entero: "))
@@ -25,12 +24,10 @@ def agregar_numero():
 
 
 def contar_elementos():
-    """Cuenta y muestra la cantidad de elementos en la pila."""
     print(f"La pila tiene {len(pila)} elemento(s).")
 
 
 def mostrar_elementos():
-    """Muestra todos los elementos de la pila, de la cima hacia la base."""
     if not pila:
         print("La pila está vacía.")
         return
@@ -40,7 +37,6 @@ def mostrar_elementos():
 
 
 def calcular_promedio():
-    """Calcula y muestra el promedio de todos los números en la pila."""
     if not pila:
         print("La pila está vacía, no se puede calcular el promedio.")
         return
@@ -49,7 +45,6 @@ def calcular_promedio():
 
 
 def mostrar_menu():
-    """Muestra el menú de opciones."""
     print("\n****Menú de Opciones*****")
     print("1. Agregar números")
     print("2. Contar elementos")
@@ -59,7 +54,6 @@ def mostrar_menu():
 
 
 def main():
-    """Función principal que controla el flujo del programa."""
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")

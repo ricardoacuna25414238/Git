@@ -16,7 +16,6 @@ pila = []
 
 
 def agregar_nombre():
-    """Agrega un nombre a la cima de la pila (push)."""
     nombre = input("Ingrese el primer nombre a agregar: ").strip()
     if nombre == "":
         print("Error: el nombre no puede estar vacío.")
@@ -26,7 +25,6 @@ def agregar_nombre():
 
 
 def eliminar_nombre():
-    """Elimina el nombre que está en la cima de la pila (pop)."""
     if not pila:
         print("La pila está vacía, no hay nada que eliminar.")
         return
@@ -35,15 +33,17 @@ def eliminar_nombre():
 
 
 def mostrar_cima():
-    """Muestra el elemento que está en la cima de la pila (peek)."""
     if not pila:
         print("La pila está vacía.")
         return
     print(f"El elemento en la cima es: {pila[-1]}")
 
 
-def buscar_nombre():
-    """Busca un nombre dentro de la pila."""
+def buscar_elemento():
+    if not pila:
+        print("La pila está vacía, no se puede buscar.")
+        return
+        
     nombre = input("Ingrese el nombre a buscar: ").strip()
     if nombre in pila:
         posicion = len(pila) - pila[::-1].index(nombre) - 1
@@ -53,12 +53,10 @@ def buscar_nombre():
 
 
 def contar_elementos():
-    """Cuenta la cantidad de elementos que tiene la pila."""
     print(f"La pila tiene {len(pila)} elemento(s).")
 
 
 def mostrar_elementos():
-    """Muestra todos los elementos de la pila, de la cima hacia la base."""
     if not pila:
         print("La pila está vacía.")
         return
@@ -68,13 +66,14 @@ def mostrar_elementos():
 
 
 def limpiar_pila():
-    """Elimina todos los elementos de la pila."""
+    if not pila:
+        print("La pila ya está vacía, no hay nada que limpiar.")
+        return
     pila.clear()
     print("La pila ha sido limpiada.")
 
 
 def mostrar_menu():
-    """Muestra el menú de opciones."""
     print("\n****Menú de Opciones*****")
     print("1. Agregar un nombre a la Pila")
     print("2. Eliminar un nombre a la Pila")
@@ -87,7 +86,6 @@ def mostrar_menu():
 
 
 def main():
-    """Función principal que controla el flujo del programa."""
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
@@ -99,7 +97,7 @@ def main():
         elif opcion == "3":
             mostrar_cima()
         elif opcion == "4":
-            buscar_nombre()
+            buscar_elemento()
         elif opcion == "5":
             contar_elementos()
         elif opcion == "6":
